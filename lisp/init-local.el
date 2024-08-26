@@ -14,9 +14,14 @@
                                 ";; When you're dead and you look back at your life,\n;; you'll see that none of this mattered in the least.\n;; - Kōdō Sawaki\n\n"
                                 ";; A day without work is a day without food\n;; - Baizhang Huaihai\n\n")))
 
+;; I like to see a bit of the wallpaper as a backdrop while I work
+(sanityinc/adjust-opacity nil -10)
+
 ;; Org stuff
 (require-package 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-agenda-files (list "~/org"))
 
 (require-package 'org-roam)
 (setq org-roam-directory "~/roam")
