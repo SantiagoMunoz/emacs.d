@@ -10,7 +10,7 @@
 (setq-default initial-scratch-message
               (seq-random-elt '(
                                 ";; There is nothing either good or bad,\n;; but thinking makes it so.\n;; - William Shakespeare\n\n"
-                                ";; Even  in Kyoto\n;; hearing the cuckoo's cry\n;;  I long for Kyoto.\n;; -Bashō\n\n"
+                                ";; Even  in Kyoto\n;; hearing the cuckoo's cry\n;; I long for Kyoto.\n;; -Bashō\n\n"
                                 ";; When you're dead and you look back at your life,\n;; you'll see that none of this mattered in the least.\n;; - Kōdō Sawaki\n\n"
                                 ";; A day without work is a day without food\n;; - Baizhang Huaihai\n\n")))
 
@@ -22,6 +22,16 @@
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 (setq org-agenda-files (list "~/org"))
+
+(setq org-capture-templates
+      `(
+        ("w" "todo (work)"
+         entry (file+headline "~/org/meta.org" "Inbox")
+         "** TODO %?\n%U\n" :clock-resume t)
+        ("t" "todo"
+         entry (file+headline "~/org/personal.org" "Inbox")
+         "** TODO %?\n%U\n" :clock-resume t)
+        ))
 
 (require-package 'org-roam)
 (setq org-roam-directory "~/roam")
