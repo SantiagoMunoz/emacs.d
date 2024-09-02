@@ -25,11 +25,11 @@
 
 (setq org-capture-templates
       `(
-        ("w" "todo (work)"
-         entry (file+headline "~/org/meta.org" "Inbox")
-         "** TODO %?\n%U\n" :clock-resume t)
+        ("n" "note"
+         entry (file+headline "~/org/tracker.org" "Capture")
+         "** %?\n%U\n" :clock-resume t)
         ("t" "todo"
-         entry (file+headline "~/org/personal.org" "Inbox")
+         entry (file+headline "~/org/tracker.org" "Inbox")
          "** TODO %?\n%U\n" :clock-resume t)
         ))
 
