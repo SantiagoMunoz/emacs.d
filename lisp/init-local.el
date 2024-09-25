@@ -12,7 +12,10 @@
                                 ";; There is nothing either good or bad,\n;; but thinking makes it so.\n;; - William Shakespeare\n\n"
                                 ";; Even  in Kyoto\n;; hearing the cuckoo's cry\n;; I long for Kyoto.\n;; -Bashō\n\n"
                                 ";; When you're dead and you look back at your life,\n;; you'll see that none of this mattered in the least.\n;; - Kōdō Sawaki\n\n"
-                                ";; A day without work is a day without food\n;; - Baizhang Huaihai\n\n")))
+                                ";; A day without work is a day without food.\n;; - Baizhang Huaihai\n\n"
+                                ";; Nothing accelerates rot faster than neglect.\n;; - Andrew Hunt\n\n"
+                                ";; You can change your organization,\n;; or change your organization.\n;; - Martin Fowler\n\n"
+                                ";; I'm not in this world to live up to your expectations\n;; and you're not in this world to live up to mine.\n;; - Bruce Lee\n\n")))
 
 ;; I like to see a bit of the wallpaper as a backdrop while I work
 (sanityinc/adjust-opacity nil -10)
