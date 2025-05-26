@@ -27,7 +27,7 @@
 (require-package 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
-(setq org-agenda-files (list "~/org"))
+(setq org-agenda-files (list "~/org" "~/shared_org"))
 
 (setq org-capture-templates
       `(
@@ -39,12 +39,34 @@
          "** TODO %?\n%U\n" :clock-resume t)
         ))
 
+
 (require-package 'org-roam)
 (setq org-roam-directory "~/roam")
+(setq org-roam-dailies-directory "daily/")
 (global-set-key (kbd "C-c n i") 'org-roam-node-insert)
 (global-set-key (kbd "C-c n f") 'org-roam-node-find)
-set-key (kbd "C-c n l") 'org-roam-node-toggle
+(global-set-key (kbd "C-c n l") 'org-roam-node-toggle)
 (org-roam-db-autosync-mode)
+
+(setq org-roam-dailies-capture-templates
+      '(("b" "Bitacora - Comienzo del dia" plain
+         "** ☀️ Intencion del dia\n%?\n** 🎯 Una cosa importante\n\n** 🧠 Brain dump\n"
+         :target (file+head+olp "%<%Y-%m-%d>.org"
+                                "#+title: 📆 %<%Y-%m-%d>\n\n"
+                                ("🧭 Bitacora personal"))
+         :empty-lines 1)
+        ("c" "Bitacora - Check-in" entry
+         "*** %<%H:%M>\n- Energia (1-10): %?\n- Distraccion (1-10): \n- Pensamiento dominante: \n- Necesito: "
+         :target (file+head+olp "%<%Y-%m-%d>.org"
+                                "#+title: 📆 %<%Y-%m-%d>\n\n"
+                                ("🧭 Bitacora personal" "⏱️ Check-ins"))
+         :empty-lines 1)
+        ("f" "Bitacora - Cierre del dia" plain
+         "** ✅ Qué hice hoy que estuvo bien\n%?\n** 💭 Algo que aprendí o note\n\n** 💤 Qué suelto esta noche\n"
+         :target (file+head+olp "%<%Y-%m-%d>.org"
+                                "#+title: 📆 %<%Y-%m-%d>\n\n"
+                                ("🧭 Bitacora personal"))
+         :empty-lines 1)))
 
 (provide 'init-local)
 ;;; init-local.el ends here
